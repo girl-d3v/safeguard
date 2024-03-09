@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import HomePage from './components/HomePage';
+import PasswordStrength from './components/PasswordStrength';
+import TwoFARecommendations from './components/TwoFARecommendations';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/password-strength" element={<PasswordStrength />} />
+        <Route path="/2fa-recommendations" element={<TwoFARecommendations />} />
+      </Routes>
+    </Router>
   );
 }
 
